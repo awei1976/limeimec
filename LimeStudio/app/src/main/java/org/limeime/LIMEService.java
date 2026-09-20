@@ -80,7 +80,8 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.media.AudioAttributes;
+import android.media.SoundPool;
 import org.limeime.candidate.CandidateInInputViewContainer;
 import org.limeime.candidate.CandidateView;
 import org.limeime.data.ChineseSymbol;
@@ -309,7 +310,8 @@ public class LIMEService extends InputMethodService
 
     private Vibrator mVibrator;
     private AudioManager mAudioManager;
-
+    private SoundPool mSoundPool;
+    private int mSndSpace, mSndDelete, mSndEnter, mSndOther;
 
     private boolean hasVibration = false;
     private boolean hasSound = false;
@@ -459,6 +461,19 @@ public class LIMEService extends InputMethodService
         // Initialize AudioManager for sound feedback
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         Log.i(TAG, "onCreate() - AudioManager obtained, mAudioManager = " + (mAudioManager != null ? "valid" : "null"));
+
+        // Per-key keypress sounds (space / delete / enter / other)
+        mSoundPool = new SoundPool.Builder()
+                .setMaxStreams(4)
+                .setAudioAttributes(new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build())
+                .build();
+        mSndSpace  = mSoundPool.load(this, R.raw.key_space, 1);
+        mSndDelete = mSoundPool.load(this, R.raw.key_delete, 1);
+        mSndEnter  = mSoundPool.load(this, R.raw.key_enter, 1);
+        mSndOther  = mSoundPool.load(this, R.raw.key_other, 1);
 
         // mFixedCandidateViewOn is always true, so we can remove the variable
         // mFixedCandidateViewOn = mLIMEPref.getFixedCandidateViewDisplay();
@@ -6210,7 +6225,7 @@ public class LIMEService extends InputMethodService
         }
     }
 
-    public void doVibrateSound(int primaryCode) {
+        public void doVibrateSound(int primaryCode) {
         //Log.i(TAG, "doVibrateSound() called with primaryCode: " + primaryCode + ", hasVibration: " + hasVibration);
 
         if (hasVibration) {
@@ -6219,27 +6234,21 @@ public class LIMEService extends InputMethodService
             //Log.i(TAG, "doVibrateSound() - hasVibration=true, vibrateLevel: " + vibrateLevel + "ms");
             vibrate(vibrateLevel);
         }
-        
-        if (hasSound && mAudioManager != null) {
-            int sound = AudioManager.FX_KEYPRESS_STANDARD;
-            switch (primaryCode) {
-                case LIMEBaseKeyboard.KEYCODE_DELETE:
-                    sound = AudioManager.FX_KEYPRESS_DELETE;
-                    break;
-                case MY_KEYCODE_ENTER:
-                    sound = AudioManager.FX_KEYPRESS_RETURN;
-                    break;
-                case MY_KEYCODE_SPACE:
-                    sound = AudioManager.FX_KEYPRESS_SPACEBAR;
-                    break;
-            }
-            float soundVolume = mLIMEPref.getKeypressSoundVolume();
-            if (soundVolume < 0) {
-                mAudioManager.playSoundEffect(sound);
+
+        if (hasSound && mSoundPool != null) {
+            int id;
+            if (primaryCode == MY_KEYCODE_SPACE) {
+                id = mSndSpace;
+            } else if (primaryCode == LIMEBaseKeyboard.KEYCODE_DELETE) {
+                id = mSndDelete;
+            } else if (primaryCode == MY_KEYCODE_ENTER) {
+                id = mSndEnter;
             } else {
-                mAudioManager.playSoundEffect(sound, soundVolume);
+                id = mSndOther;
             }
-            //Log.i(TAG, "doVibrateSound() - sound played, sound code: " + sound);
+            float v = mLIMEPref.getKeypressSoundVolume();
+            if (v < 0) v = 1.0f;   // -1 = 系統預設，這裡當作滿音量
+            mSoundPool.play(id, v, v, 1, 0, 1.0f);
         }
     }
 
@@ -6288,8 +6297,8 @@ public class LIMEService extends InputMethodService
     }
 */
 
-    @Override
-    public void onDestroy() {
+        @Override
+        public void onDestroy() {
         if (DEBUG)
             Log.i(TAG, "onDestroy()");
 
@@ -6300,12 +6309,16 @@ public class LIMEService extends InputMethodService
             mDictationController = null;
         }
 
+        if (mSoundPool != null) {
+            mSoundPool.release();
+            mSoundPool = null;
+        }
+
         //jeremy 12,4,21 need to check again---
         //clearComposing(true); see no need to do this '12,4,21
         super.onDestroy();
 
     }
-
     /*
     @Override
     public void onUpdateCursor(Rect newCursor) {
