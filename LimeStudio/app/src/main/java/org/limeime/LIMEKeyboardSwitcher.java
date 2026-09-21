@@ -45,6 +45,8 @@ public class LIMEKeyboardSwitcher {
 
 	static final boolean DEBUG = false;
 	static final String TAG = "LIMEKeyboardSwitcher";
+		// 鍵盤左右各內縮的距離（dp），0 = 不內縮
+	private static final int SIDE_INSET_DP = 8;
 
 	// SPLIT_ONE_HAND_KB: the numpad-based layouts never split (they anchor instead).
 	// phone/phone_shift are the 5-column T9-style phone-IM keypads — same grid class.
@@ -371,6 +373,13 @@ public class LIMEKeyboardSwitcher {
 	                        ReachGeometry.oneHandWidth(keyboard.getDisplayWidth(), dmBuild.xdpi),
 	                        phoneOneHandAnchor == 1 ? LIMEBaseKeyboard.ANCHOR_LEFT : LIMEBaseKeyboard.ANCHOR_RIGHT,
 	                        true);
+						            // 左右內縮：已經被單手模式／數字鍵盤位置縮窄的，不再重複縮
+	            boolean alreadyNarrowed =
+	                    (isTabletBuild && numpadXml && mLIMEPref.getNumpadAnchor() != 0)
+	                    || (!isTabletBuild && phoneOneHandAnchor != 0);
+	            if (!alreadyNarrowed && SIDE_INSET_DP > 0) {
+	                keyboard.applySideInset(Math.round(SIDE_INSET_DP * dmBuild.density));
+	            }
 	            }
 	            mKeyboards.put(id, keyboard);
 	        }
