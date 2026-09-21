@@ -229,7 +229,7 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
     private int mPreviewTextSizeLarge;
     private int[] mOffsetInWindow;
     private int mOldPreviewKeyIndex = NOT_A_KEY;
-    private boolean mShowPreview = true;
+    private boolean mShowPreview = false;
     private int mPopupPreviewOffsetX;
     private int mPopupPreviewOffsetY;
     private int mWindowY;
@@ -376,14 +376,34 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
             }
         }
 
-        public void showPreview(long delay, int keyIndex, PointerTracker tracker){
-            if(DEBUG)
-                Log.i(TAG,"UIHandler.showPreview() delay = "+delay);
-            removeMessages(MSG_DISMISS_PREVIEW);
-            removeMessages(MSG_SHOW_PREVIEW);
-            sendMessageDelayed(obtainMessage(MSG_SHOW_PREVIEW, keyIndex, 0, tracker), delay);
+            public void showPreview(int keyIndex, PointerTracker tracker) {
 
+        int oldKeyIndex = mOldPreviewKeyIndex;
+        mOldPreviewKeyIndex = keyIndex;
+        final PopupWindow previewPopup = mPreviewPopup;
+
+        if(DEBUG)
+            Log.i(TAG,"showPreview() keyIndex =" + keyIndex + ", oldKeyIndex = " + oldKeyIndex);
+
+        // 預覽關閉時：只處理「收起」，不再彈出（包含空白鍵）
+        if (!mShowPreview) {
+            if (keyIndex == NOT_A_KEY) {
+                mHandler.dismissPreviewNow();
+            }
+            return;
         }
+
+        final boolean hidePreviewOrShowSpaceKeyPreview = (tracker == null) || tracker.isSpaceKey(keyIndex) || tracker.isSpaceKey(oldKeyIndex);
+        // If key changed and preview is on or the key is space (language switch is enabled)
+        if (oldKeyIndex != keyIndex  && mShowPreview
+                || (hidePreviewOrShowSpaceKeyPreview)){
+            if (keyIndex == NOT_A_KEY) {
+                mHandler.dismissPreviewNow();
+            } else if (tracker != null) {
+                mHandler.popupPreview(0, keyIndex, tracker);
+            }
+        }
+    }
         public void popupPreview(long delay, int keyIndex, PointerTracker tracker) {
             if(DEBUG)
                 Log.i(TAG, "UIHandler.popupPreview() delay="+delay + "; keyIndex = "+ keyIndex);
