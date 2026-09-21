@@ -376,21 +376,13 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
             }
         }
 
-            public void showPreview(int keyIndex, PointerTracker tracker) {
+      public void showPreview(long delay, int keyIndex, PointerTracker tracker){
+            if(DEBUG)
+                Log.i(TAG,"UIHandler.showPreview() delay = "+delay);
+            removeMessages(MSG_DISMISS_PREVIEW);
+            removeMessages(MSG_SHOW_PREVIEW);
+            sendMessageDelayed(obtainMessage(MSG_SHOW_PREVIEW, keyIndex, 0, tracker), delay);
 
-        int oldKeyIndex = mOldPreviewKeyIndex;
-        mOldPreviewKeyIndex = keyIndex;
-        final PopupWindow previewPopup = mPreviewPopup;
-
-        if(DEBUG)
-            Log.i(TAG,"showPreview() keyIndex =" + keyIndex + ", oldKeyIndex = " + oldKeyIndex);
-
-        // 預覽關閉時：只處理「收起」，不再彈出（包含空白鍵）
-        if (!mShowPreview) {
-            if (keyIndex == NOT_A_KEY) {
-                mHandler.dismissPreviewNow();
-            }
-            return;
         }
 
         final boolean hidePreviewOrShowSpaceKeyPreview = (tracker == null) || tracker.isSpaceKey(keyIndex) || tracker.isSpaceKey(oldKeyIndex);
@@ -1419,6 +1411,7 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
                 mHandler.popupPreview(0, keyIndex, tracker);
             }
         }
+        final boolean hidePreviewOrShowSpaceKeyPreview =
     }
 
     private void showKey(final int keyIndex, PointerTracker tracker) {
