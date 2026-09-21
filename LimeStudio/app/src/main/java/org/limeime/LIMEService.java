@@ -2321,7 +2321,7 @@ public class LIMEService extends InputMethodService
             invalidateStartupConfigSnapshot();
             applyGeometryChangeInPlace();
         } else if (primaryCode == LIMEKeyboardView.KEYCODE_SPACE_LONGPRESS) {
-            showIMPicker();
+            // 已停用：長按空白鍵不再彈出輸入法選單
         } else if (primaryCode == KEYCODE_SWITCH_TO_SYMBOL_MODE && mInputView != null) { //->symbol keyboard
             switchKeyboard(primaryCode);
         } else if (primaryCode == LIMEKeyboardView.KEYCODE_PHONE_SIMPLE_LONGPRESS && mInputView != null) {
