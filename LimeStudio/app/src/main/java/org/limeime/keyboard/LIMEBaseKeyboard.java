@@ -1228,6 +1228,18 @@ public class LIMEBaseKeyboard {
     /** SPLIT_ONE_HAND_KB: horizontal insets applied by applyHorizontalAnchor (0 when full width). */
     public int getAnchorLeftInset() { return mAnchorLeftInset; }
     public int getAnchorRightInset() { return mAnchorRightInset; }
+        /**
+     * 左右各內縮 insetPx：所有按鍵水平縮放後置中，鍵盤高度不變。
+     */
+    public void applySideInset(int insetPx) {
+        if (insetPx <= 0) return;
+        final int targetWidth = mDisplayWidth - 2 * insetPx;
+        if (targetWidth <= 0 || targetWidth >= mDisplayWidth) return;
+        final float s = (float) targetWidth / (float) mDisplayWidth;
+        applyHorizontalAnchor(targetWidth, ANCHOR_CENTER, false);
+        // 預設按鍵寬度一起縮，避免 Key.getLabelSizeScale() 誤判「按鍵比預設窄」而縮小文字
+        mDefaultWidth = Math.round(mDefaultWidth * s);
+    }
 
 
     private void loadKeyboard(Context context, XmlResourceParser parser) {
