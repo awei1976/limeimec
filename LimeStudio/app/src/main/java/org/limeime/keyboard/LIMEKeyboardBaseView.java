@@ -317,7 +317,7 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
     private final UIHandler mHandler = new UIHandler(this);
 
 
-    static class UIHandler extends Handler {
+        static class UIHandler extends Handler {
         private static final int MSG_POPUP_PREVIEW = 1;
         private static final int MSG_DISMISS_PREVIEW = 2;
         private static final int MSG_REPEAT_KEY = 3;
@@ -376,7 +376,7 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
             }
         }
 
-      public void showPreview(long delay, int keyIndex, PointerTracker tracker){
+        public void showPreview(long delay, int keyIndex, PointerTracker tracker){
             if(DEBUG)
                 Log.i(TAG,"UIHandler.showPreview() delay = "+delay);
             removeMessages(MSG_DISMISS_PREVIEW);
@@ -384,18 +384,6 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
             sendMessageDelayed(obtainMessage(MSG_SHOW_PREVIEW, keyIndex, 0, tracker), delay);
 
         }
-
-        final boolean hidePreviewOrShowSpaceKeyPreview = (tracker == null) || tracker.isSpaceKey(keyIndex) || tracker.isSpaceKey(oldKeyIndex);
-        // If key changed and preview is on or the key is space (language switch is enabled)
-        if (oldKeyIndex != keyIndex  && mShowPreview
-                || (hidePreviewOrShowSpaceKeyPreview)){
-            if (keyIndex == NOT_A_KEY) {
-                mHandler.dismissPreviewNow();
-            } else if (tracker != null) {
-                mHandler.popupPreview(0, keyIndex, tracker);
-            }
-        }
-    }
         public void popupPreview(long delay, int keyIndex, PointerTracker tracker) {
             if(DEBUG)
                 Log.i(TAG, "UIHandler.popupPreview() delay="+delay + "; keyIndex = "+ keyIndex);
@@ -498,7 +486,6 @@ public class LIMEKeyboardBaseView extends View implements PointerTracker.UIProxy
             cancelDismissPreview();
         }
     }
-
     static class PointerQueue {
         private final LinkedList<PointerTracker> mQueue = new LinkedList<>();
 
