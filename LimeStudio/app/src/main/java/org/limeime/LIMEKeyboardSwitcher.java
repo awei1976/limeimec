@@ -46,7 +46,7 @@ public class LIMEKeyboardSwitcher {
 	static final boolean DEBUG = false;
 	static final String TAG = "LIMEKeyboardSwitcher";
 		// 鍵盤左右各內縮的距離（dp），0 = 不內縮
-	private static final int SIDE_INSET_DP = 24;
+	private static final int SIDE_INSET_DP = 8;
 
 	// SPLIT_ONE_HAND_KB: the numpad-based layouts never split (they anchor instead).
 	// phone/phone_shift are the 5-column T9-style phone-IM keypads — same grid class.
