@@ -305,48 +305,48 @@ public class LIMEKeyboardSwitcher {
     }
     
    
-    private LIMEKeyboard getKeyboard(KeyboardId id) {
-    	if(DEBUG)
-    		Log.i(TAG,"getKeyboard()");
-    	//Jeremy '11,9,3
-    	if(mLIMEPref.getKeyboardSize()!=mKeySizeScale){
-    		clearKeyboards();
-    		mKeySizeScale = mLIMEPref.getKeyboardSize();
-    	}
-	    if(id != null){
-	        if (!mKeyboards.containsKey(id)) {
-				if(DEBUG)
-					Log.i(TAG,"getKeyboard() keyboard for id, " + id + ", is not exist. create one now.");
-	        	boolean numpadXml = isNumpadXml(id.mXml);
-				boolean splitEligible = !numpadXml; // SPLIT_ONE_HAND_KB: numpad-based layouts never split
-				DisplayMetrics dmBuild = mThemedContext.getResources().getDisplayMetrics();
-				boolean isTabletBuild =
-						mThemedContext.getResources().getConfiguration().smallestScreenWidthDp >= 600;
-				boolean landscapeBuild = dmBuild.widthPixels > dmBuild.heightPixels;
-				// Issue #169: tablets keep the legacy split_keyboard_mode value; phones use
-				// the integrated portrait mode + separate landscape split, resolved here so
-				// the keyboard reads exactly one canonical decision.
-				int splitArg;
-				boolean phoneSplitForced;
-				int phoneOneHandAnchor;
-				if (isTabletBuild) {
-					splitArg = numpadXml ? LIMEBaseKeyboard.SPLIT_KEYBOARD_NEVER : mLIMEPref.getSplitKeyboard();
-					phoneSplitForced = false;
-					phoneOneHandAnchor = 0;
-				} else {
-					int portraitMode = mLIMEPref.getPhonePortraitKeyboardMode();
-					boolean landscapeSplit = mLIMEPref.getPhoneLandscapeSplit();
-					splitArg = LIMEBaseKeyboard.SPLIT_KEYBOARD_NEVER;
-					phoneSplitForced = PhoneKeyboardModePolicy.phoneSplitActive(
-							landscapeBuild, splitEligible, portraitMode, landscapeSplit);
-					phoneOneHandAnchor = PhoneKeyboardModePolicy.oneHandAnchorMode(landscapeBuild, portraitMode);
-				}
-				LIMEKeyboard keyboard = new LIMEKeyboard(
-						mThemedContext, id.mXml, id.mMode, mKeySizeScale,
-	                mLIMEPref.getShowArrowKeys(), //Jeremy '12,5,21 add the show arrow keys option
-	                splitArg, //Jeremy '12,5,27 add the split keyboard option
-	                splitEligible,
-	                phoneSplitForced // issue #169: resolved phone portrait/landscape split
+        private LIMEKeyboard getKeyboard(KeyboardId id) {
+        if (DEBUG)
+            Log.i(TAG, "getKeyboard()");
+        //Jeremy '11,9,3
+        if (mLIMEPref.getKeyboardSize() != mKeySizeScale) {
+            clearKeyboards();
+            mKeySizeScale = mLIMEPref.getKeyboardSize();
+        }
+        if (id != null) {
+            if (!mKeyboards.containsKey(id)) {
+                if (DEBUG)
+                    Log.i(TAG, "getKeyboard() keyboard for id, " + id + ", is not exist. create one now.");
+                boolean numpadXml = isNumpadXml(id.mXml);
+                boolean splitEligible = !numpadXml; // SPLIT_ONE_HAND_KB: numpad-based layouts never split
+                DisplayMetrics dmBuild = mThemedContext.getResources().getDisplayMetrics();
+                boolean isTabletBuild =
+                        mThemedContext.getResources().getConfiguration().smallestScreenWidthDp >= 600;
+                boolean landscapeBuild = dmBuild.widthPixels > dmBuild.heightPixels;
+                // Issue #169: tablets keep the legacy split_keyboard_mode value; phones use
+                // the integrated portrait mode + separate landscape split, resolved here so
+                // the keyboard reads exactly one canonical decision.
+                int splitArg;
+                boolean phoneSplitForced;
+                int phoneOneHandAnchor;
+                if (isTabletBuild) {
+                    splitArg = numpadXml ? LIMEBaseKeyboard.SPLIT_KEYBOARD_NEVER : mLIMEPref.getSplitKeyboard();
+                    phoneSplitForced = false;
+                    phoneOneHandAnchor = 0;
+                } else {
+                    int portraitMode = mLIMEPref.getPhonePortraitKeyboardMode();
+                    boolean landscapeSplit = mLIMEPref.getPhoneLandscapeSplit();
+                    splitArg = LIMEBaseKeyboard.SPLIT_KEYBOARD_NEVER;
+                    phoneSplitForced = PhoneKeyboardModePolicy.phoneSplitActive(
+                            landscapeBuild, splitEligible, portraitMode, landscapeSplit);
+                    phoneOneHandAnchor = PhoneKeyboardModePolicy.oneHandAnchorMode(landscapeBuild, portraitMode);
+                }
+                LIMEKeyboard keyboard = new LIMEKeyboard(
+                        mThemedContext, id.mXml, id.mMode, mKeySizeScale,
+                        mLIMEPref.getShowArrowKeys(), //Jeremy '12,5,21 add the show arrow keys option
+                        splitArg, //Jeremy '12,5,27 add the split keyboard option
+                        splitEligible,
+                        phoneSplitForced // issue #169: resolved phone portrait/landscape split
                 );
                 keyboard.setKeyboardSwitcher(this);
                 if (id.mCjSemicolonKey) {
@@ -355,39 +355,36 @@ public class LIMEKeyboardSwitcher {
                 if (id.mEnableShiftLock) {
                     keyboard.enableShiftLock();
                 }
-	            // SPLIT_ONE_HAND_KB / issue #169: horizontal anchoring. Phone portrait
-	            // one-hand applies to EVERY phone regardless of screen width (no gate);
-	            // numpad anchoring = tablets, numpad layouts only. oneHandWidth still
-	            // clamps to the available width, so a narrow phone simply gets a full-width
-	            // block, but the mode is always honored — never gated by device size.
-	            	            if (isTabletBuild && numpadXml) {
-	                int anchor = mLIMEPref.getNumpadAnchor();
-	                if (anchor != 0)
-	                    keyboard.applyHorizontalAnchor(
-	                            ReachGeometry.numpadWidth(keyboard.getDisplayWidth(), 5, dmBuild.xdpi),
-	                            anchor, false);
-	            } else if (!isTabletBuild && phoneOneHandAnchor != 0) {
-	                // Issue #169: portrait one-hand (oneHandAnchorMode returns 0 in landscape),
-	                // applies to all portrait layouts including numpad-based ones.
-	                keyboard.applyHorizontalAnchor(
-	                        ReachGeometry.oneHandWidth(keyboard.getDisplayWidth(), dmBuild.xdpi),
-	                        phoneOneHandAnchor == 1 ? LIMEBaseKeyboard.ANCHOR_LEFT : LIMEBaseKeyboard.ANCHOR_RIGHT,
-	                        true);
-	            }
+                // SPLIT_ONE_HAND_KB / issue #169: horizontal anchoring.
+                if (isTabletBuild && numpadXml) {
+                    int anchor = mLIMEPref.getNumpadAnchor();
+                    if (anchor != 0)
+                        keyboard.applyHorizontalAnchor(
+                                ReachGeometry.numpadWidth(keyboard.getDisplayWidth(), 5, dmBuild.xdpi),
+                                anchor, false);
+                } else if (!isTabletBuild && phoneOneHandAnchor != 0) {
+                    // Issue #169: portrait one-hand (oneHandAnchorMode returns 0 in landscape),
+                    // applies to all portrait layouts including numpad-based ones.
+                    keyboard.applyHorizontalAnchor(
+                            ReachGeometry.oneHandWidth(keyboard.getDisplayWidth(), dmBuild.xdpi),
+                            phoneOneHandAnchor == 1 ? LIMEBaseKeyboard.ANCHOR_LEFT : LIMEBaseKeyboard.ANCHOR_RIGHT,
+                            true);
+                }
 
-	            // 左右內縮：已經被單手模式／數字鍵盤位置縮窄的，不再重複縮
-	            boolean alreadyNarrowed =
-	                    (isTabletBuild && numpadXml && mLIMEPref.getNumpadAnchor() != 0)
-	                    || (!isTabletBuild && phoneOneHandAnchor != 0);
-	            if (!alreadyNarrowed && SIDE_INSET_DP > 0) {
-	                keyboard.applySideInset(Math.round(SIDE_INSET_DP * dmBuild.density));
-	            }
+                // 左右內縮：已經被單手模式／數字鍵盤位置縮窄的，不再重複縮
+                boolean alreadyNarrowed =
+                        (isTabletBuild && numpadXml && mLIMEPref.getNumpadAnchor() != 0)
+                        || (!isTabletBuild && phoneOneHandAnchor != 0);
+                if (!alreadyNarrowed && SIDE_INSET_DP > 0) {
+                    keyboard.applySideInset(Math.round(SIDE_INSET_DP * dmBuild.density));
+                }
 
-	            mKeyboards.put(id, keyboard);
-	    }
-	    return null;
+                mKeyboards.put(id, keyboard);
+            }
+            return mKeyboards.get(id);
+        }
+        return null;
     }
-    
     /**
      * Get XML resource ID for keyboard layout.
      * Uses direct R.xml references for all keyboard layouts (more efficient and compile-time verified).
