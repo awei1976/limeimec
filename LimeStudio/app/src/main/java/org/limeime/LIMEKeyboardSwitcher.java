@@ -360,7 +360,7 @@ public class LIMEKeyboardSwitcher {
 	            // numpad anchoring = tablets, numpad layouts only. oneHandWidth still
 	            // clamps to the available width, so a narrow phone simply gets a full-width
 	            // block, but the mode is always honored — never gated by device size.
-	            if (isTabletBuild && numpadXml) {
+	            	            if (isTabletBuild && numpadXml) {
 	                int anchor = mLIMEPref.getNumpadAnchor();
 	                if (anchor != 0)
 	                    keyboard.applyHorizontalAnchor(
@@ -373,17 +373,17 @@ public class LIMEKeyboardSwitcher {
 	                        ReachGeometry.oneHandWidth(keyboard.getDisplayWidth(), dmBuild.xdpi),
 	                        phoneOneHandAnchor == 1 ? LIMEBaseKeyboard.ANCHOR_LEFT : LIMEBaseKeyboard.ANCHOR_RIGHT,
 	                        true);
-						            // 左右內縮：已經被單手模式／數字鍵盤位置縮窄的，不再重複縮
+	            }
+
+	            // 左右內縮：已經被單手模式／數字鍵盤位置縮窄的，不再重複縮
 	            boolean alreadyNarrowed =
 	                    (isTabletBuild && numpadXml && mLIMEPref.getNumpadAnchor() != 0)
 	                    || (!isTabletBuild && phoneOneHandAnchor != 0);
 	            if (!alreadyNarrowed && SIDE_INSET_DP > 0) {
 	                keyboard.applySideInset(Math.round(SIDE_INSET_DP * dmBuild.density));
 	            }
-	            }
+
 	            mKeyboards.put(id, keyboard);
-	        }
-	        return mKeyboards.get(id);
 	    }
 	    return null;
     }
