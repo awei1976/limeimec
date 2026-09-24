@@ -69,12 +69,12 @@
         <style name="LIMEKeyboard.TechBlue" parent = "LIMEKeyboard">
         <item name="spaceKeyIcon">@drawable/sym_keyboard_space_light</item>
         <item name="spaceKeyPreviewIcon">@drawable/sym_flat_keyboard_space</item>
-        <item name="enterKeyIcon">@drawable/sym_keyboard_return_white</item>
+        <item name="enterKeyIcon">@drawable/sym_keyboard_return_white</item> <!-- 白色 Enter 箭頭圖示 -->
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_light</item>
-        <item name ="doneKeyIcon">@drawable/sym_keyboard_done_light</item>
-        <item name ="deleteKeyIcon">@drawable/sym_keyboard_delete_light</item>
-        <item name ="shiftKeyIcon">@drawable/sym_keyboard_shift</item>
-        <item name ="shiftKeyShiftedIcon">@drawable/sym_keyboard_shift_shifted</item>
+        <item name="doneKeyIcon">@drawable/sym_keyboard_done_light</item>
+        <item name="deleteKeyIcon">@drawable/sym_keyboard_delete_light</item>
+        <item name="shiftKeyIcon">@drawable/sym_keyboard_shift</item>
+        <item name="shiftKeyShiftedIcon">@drawable/sym_keyboard_shift_shifted</item>
     </style>
 
     <style name="LIMEKeyboard.FashionPurple" parent = "LIMEKeyboard">
