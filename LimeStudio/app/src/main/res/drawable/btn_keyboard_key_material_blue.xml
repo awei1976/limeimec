@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Enter/Return 鍵：按下（貼平） -->
+    <!-- Enter/Return 鍵：按下 -->
     <item android:state_single="true" android:state_activated="true" android:state_pressed="true">
         <inset android:insetLeft="3dp" android:insetTop="4dp"
                android:insetRight="3dp" android:insetBottom="4dp">
@@ -12,25 +12,17 @@
         </inset>
     </item>
 
-    <!-- Enter/Return 鍵：一般（有陰影） -->
+    <!-- Enter/Return 鍵：一般 -->
     <item android:state_single="true" android:state_activated="true">
-        <layer-list>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#24476B" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="5dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#3B6EA5" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-        </layer-list>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#3B6EA5" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
-    <!-- sticky 鍵：按下 + 已鎖定（貼平） -->
     <item android:state_single="true" android:state_pressed="true"
           android:state_checkable="true" android:state_checked="true">
         <inset android:insetLeft="3dp" android:insetTop="4dp"
@@ -42,26 +34,17 @@
         </inset>
     </item>
 
-    <!-- sticky 鍵：已鎖定（未按下，有陰影） -->
     <item android:state_single="true"
           android:state_checkable="true" android:state_checked="true">
-        <layer-list>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#AFC7EC" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="5dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#D6E4FB" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-        </layer-list>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#D6E4FB" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
-    <!-- sticky 鍵：按下（未鎖定，貼平） -->
     <item android:state_single="true" android:state_pressed="true"
           android:state_checkable="true">
         <inset android:insetLeft="3dp" android:insetTop="4dp"
@@ -73,25 +56,16 @@
         </inset>
     </item>
 
-    <!-- sticky 鍵：一般（未鎖定，有陰影） -->
     <item android:state_single="true" android:state_checkable="true">
-        <layer-list>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#8B909B" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="5dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#ABB1BC" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-        </layer-list>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#ABB1BC" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
-    <!-- 功能鍵：按下（貼平） -->
     <item android:state_single="true" android:state_pressed="true">
         <inset android:insetLeft="3dp" android:insetTop="4dp"
                android:insetRight="3dp" android:insetBottom="4dp">
@@ -102,25 +76,16 @@
         </inset>
     </item>
 
-    <!-- 功能鍵：一般（有陰影） -->
     <item android:state_single="true">
-        <layer-list>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#8B909B" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="5dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#ABB1BC" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-        </layer-list>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#ABB1BC" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
-    <!-- 一般字母/數字鍵：按下（貼平） -->
     <item android:state_pressed="true">
         <inset android:insetLeft="3dp" android:insetTop="4dp"
                android:insetRight="3dp" android:insetBottom="4dp">
@@ -131,22 +96,14 @@
         </inset>
     </item>
 
-    <!-- 一般字母/數字鍵：預設（有陰影） -->
     <item>
-        <layer-list>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#C7C9CE" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-            <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="5dp">
-                <shape android:shape="rectangle">
-                    <solid android:color="#FFFFFF" />
-                    <corners android:radius="5dp" />
-                </shape>
-            </item>
-        </layer-list>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFFFFF" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
 </selector>
