@@ -56,7 +56,7 @@
     </style>
 
         <style name="LIMEKeyboard.Pink" parent = "LIMEKeyboard">
-        <item name="spaceKeyIcon">@drawable/sym_keyboard_space_light</item>
+        <item name="spaceKeyIcon">@drawable/keyboard_hint_transparent</item>
         <item name="spaceKeyPreviewIcon">@drawable/sym_flat_keyboard_space</item>
         <item name="enterKeyIcon">@drawable/sym_keyboard_return_light</item>
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_light</item>
@@ -225,7 +225,7 @@
         <item name="keyPreviewLayout">@layout/key_preview_light</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_ios_light</item>
         <item name="android:background">@drawable/keyboard_background_ios_light</item>
-        <item name="popupHint">@drawable/hint_popup</item>
+        <item name="popupHint">@drawable/keyboard_hint_transparent</item>
 
         <item name="keyTextColorNormal">#1C1C1E</item>
         <item name="keyTextColorPressed">#1C1C1E</item>
