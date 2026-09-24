@@ -58,14 +58,14 @@
 <color name="second_background_pink">#FFF49AC1</color>
 <color name="second_background_pink_hl">#FFF173AC</color>
 <!--  colors for tech blue theme  -->
-<color name="tech_blue_hl">#FF4167B0</color>
-<color name="keyboard_background_tech_blue">#FFC5DBEC</color>
-<color name="candidate_background_tech_blue">#FFD8E7F3</color>
-<color name="composing_background_tech_blue">#E0B2CFE6</color>
-<color name="second_background_tech_blue">#FF9BC5E4</color>
-<color name="second_background_tech_blue_hl">#FF6699CC</color>
-<color name="foreground_tech_blue">#FF314453</color>
-<color name="second_foreground_tech_blue">#FF4E6677</color>
+<color name="tech_blue_hl">#2B60A5</color> <!-- Enter 鍵與高亮標示藍色 -->
+<color name="keyboard_background_tech_blue">#D8DFE8</color> <!-- 鍵盤整體淡灰藍背景 -->
+<color name="candidate_background_tech_blue">#F2F5F8</color> <!-- 候選字列背景 -->
+<color name="composing_background_tech_blue">#E0D8DFE8</color>
+<color name="second_background_tech_blue">#A0B0C3</color> <!-- 功能鍵灰色背景 -->
+<color name="second_background_tech_blue_hl">#2B60A5</color>
+<color name="foreground_tech_blue">#000000</color> <!-- 文字黑色 -->
+<color name="second_foreground_tech_blue">#5C6A79</color> <!-- 功能鍵深灰文字/圖示 -->
 <!--  colors for fashion purple  theme  -->
 <color name="fashion_purple_hl">#FF45196F</color>
 <color name="keyboard_background_fashion_purple">#FFB0ACD5</color>
