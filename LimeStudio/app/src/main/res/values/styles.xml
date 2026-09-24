@@ -117,9 +117,9 @@
     <item name="android:keyBackground">@drawable/btn_keyboard_key_ios_light</item>
 </style>
 
-<style name="LIMEKeyboardLayout.TechBlue" parent = "LIMEKeyboardLayout">
-    <item name="android:background">@drawable/keyboard_background_ios_light</item>
-    <item name="android:keyBackground">@drawable/btn_keyboard_key_ios_light</item>
+<style name="LIMEKeyboardLayout.TechBlue" parent="LIMEKeyboardLayout">
+    <item name="android:background">@drawable/keyboard_background_tech_blue</item>
+    <item name="android:keyBackground">@drawable/btn_keyboard_key_tech_blue</item>
 </style>
     <style name="LIMEKeyboardLayout.FashionPurple" parent = "LIMEKeyboardLayout">
         <item name="android:background">@drawable/keyboard_background_fashion_purple</item>
@@ -148,8 +148,8 @@
 </style>
 
 <style name="LIMEPopupKeyboardLayout.TechBlue" parent = "LIMEPopupKeyboardLayout">
-    <item name="android:background">@drawable/keyboard_background_ios_light</item>
-    <item name="android:keyBackground">@drawable/btn_keyboard_key_material_blue</item>
+    <item name="android:background">@drawable/keyboard_popup_panel_background_tech_blue</item>
+    <item name="android:keyBackground">@drawable/btn_keyboard_key_popup_tech_blue</item>
 </style>
     <style name="LIMEPopupKeyboardLayout.FashionPurple" parent = "LIMEPopupKeyboardLayout">
         <item name="android:background">@drawable/keyboard_popup_panel_background_fashion_purple</item>
