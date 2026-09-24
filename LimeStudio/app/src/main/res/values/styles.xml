@@ -143,7 +143,7 @@
         <style name="LIMEPopupKeyboardLayout.Pink" parent = "LIMEPopupKeyboardLayout">
         <item name="android:background">@drawable/keyboard_popup_panel_background_ios_light</item>
         <item name="android:keyBackground">@drawable/btn_keyboard_key_ios_light</item>
-        <style name="LIMEKeyboardLayout.TechBlue" parent = "LIMEKeyboardLayout">
+    <style name="LIMEKeyboardLayout.TechBlue" parent = "LIMEKeyboardLayout">
         <item name="android:background">@drawable/keyboard_background_ios_light</item>
         <item name="android:keyBackground">@drawable/btn_keyboard_key_material_blue</item>
     </style>
