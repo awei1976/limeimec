@@ -3,61 +3,85 @@
 
     <item android:state_single="true" android:state_pressed="true"
           android:state_checkable="true" android:state_checked="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#B3D4FF" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#B3D4FF" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item android:state_single="true"
           android:state_checkable="true" android:state_checked="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#D6E4FB" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#D6E4FB" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item android:state_single="true" android:state_pressed="true"
           android:state_checkable="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFFFFF" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item android:state_single="true" android:state_checkable="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#ABB1BC" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#ABB1BC" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item android:state_single="true" android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFFFFF" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item android:state_single="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#ABB1BC" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#ABB1BC" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#D6E4FB" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#D6E4FB" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
     <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF" />
-            <corners android:radius="6dp" />
-        </shape>
+        <inset android:insetLeft="3dp" android:insetTop="4dp"
+               android:insetRight="3dp" android:insetBottom="4dp">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFFFFF" />
+                <corners android:radius="5dp" />
+            </shape>
+        </inset>
     </item>
 
 </selector>
