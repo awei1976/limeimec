@@ -7296,7 +7296,7 @@ public class LIMEService extends InputMethodService
         switch (mKeyboardThemeIndex) {
             case 1:  colorRes = R.color.keyboard_background_dark;            break;
             case 2:  colorRes = R.color.keyboard_background_ios_light;       break;
-            case 3:  colorRes = R.color.keyboard_background_tech_blue;       break;
+            case 3:  colorRes = R.color.keyboard_background_ios_light;       break;
             case 4:  colorRes = R.color.keyboard_background_fashion_purple;  break;
             case 5:  colorRes = R.color.keyboard_background_relax_green;     break;
             case 6:
