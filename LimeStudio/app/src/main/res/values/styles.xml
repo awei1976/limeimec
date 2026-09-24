@@ -409,7 +409,7 @@
     </style>
         <style name="LIMECandidateView.Pink"  parent = "LIMECandidateView">
         <item name="dismissPillColor">#D1D3D9</item>
-        <item name="suggestHighlight">@drawable/ic_suggest_scroll_background_hl</item>
+        <item name="suggestHighlight">@drawable/ic_suggest_scroll_background_ios</item>
         <item name="voiceInputIcon">@drawable/btn_voice_light</item>
         <item name="emojiButtonIcon">@drawable/btn_emoji_light</item>
         <item name="candidateBackground">#FFFFFF</item>
