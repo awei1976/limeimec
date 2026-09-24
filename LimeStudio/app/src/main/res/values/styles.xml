@@ -116,9 +116,9 @@
         <item name="android:background">@drawable/keyboard_background_ios_light</item>
         <item name="android:keyBackground">@drawable/btn_keyboard_key_ios_light</item>
     </style>
-    <style name="LIMEKeyboardLayout.TechBlue" parent = "LIMEKeyboardLayout">
-        <item name="android:background">@drawable/keyboard_background_tech_blue</item>
-        <item name="android:keyBackground">@drawable/btn_keyboard_key_tech_blue</item>
+        <style name="LIMEKeyboardLayout.TechBlue" parent = "LIMEKeyboardLayout">
+        <item name="android:background">@drawable/keyboard_background_ios_light</item>
+        <item name="android:keyBackground">@drawable/btn_keyboard_key_material_blue</item>
     </style>
     <style name="LIMEKeyboardLayout.FashionPurple" parent = "LIMEKeyboardLayout">
         <item name="android:background">@drawable/keyboard_background_fashion_purple</item>
@@ -145,9 +145,9 @@
         <item name="android:background">@drawable/keyboard_popup_panel_background_ios_light</item>
         <item name="android:keyBackground">@drawable/btn_keyboard_key_ios_light</item>
     </style>
-    <style name="LIMEPopupKeyboardLayout.TechBlue" parent = "LIMEPopupKeyboardLayout">
-        <item name="android:background">@drawable/keyboard_popup_panel_background_tech_blue</item>
-        <item name="android:keyBackground">@drawable/btn_keyboard_key_tech_blue</item>
+        <style name="LIMEPopupKeyboardLayout.TechBlue" parent = "LIMEPopupKeyboardLayout">
+        <item name="android:background">@drawable/keyboard_popup_panel_background_ios_light</item>
+        <item name="android:keyBackground">@drawable/btn_keyboard_key_material_blue</item>
     </style>
     <style name="LIMEPopupKeyboardLayout.FashionPurple" parent = "LIMEPopupKeyboardLayout">
         <item name="android:background">@drawable/keyboard_popup_panel_background_fashion_purple</item>
@@ -237,19 +237,20 @@
         <item name="keySubLabelTextColorPressed">#3A3A3C</item>
     </style>
 
-    <style name="LIMEKeyboardBaseView.TechBlue" parent = "LIMEKeyboardBaseView">
-        <item name="keyPreviewLayout">@layout/key_preview_tech_blue</item>
-        <item name="keyBackground">@drawable/btn_keyboard_key_tech_blue</item>
-        <item name="popupHint">@drawable/hint_popup_dark</item>
+        <style name="LIMEKeyboardBaseView.TechBlue" parent = "LIMEKeyboardBaseView">
+        <item name="keyPreviewLayout">@layout/key_preview_light</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_material_blue</item>
+        <item name="android:background">@drawable/keyboard_background_ios_light</item>
+        <item name="popupHint">@drawable/hint_popup</item>
 
-        <item name="keyTextColorNormal">@color/foreground_tech_blue</item>
-        <item name="keyTextColorPressed">@color/color_white</item>
+        <item name="keyTextColorNormal">#1C1C1E</item>
+        <item name="keyTextColorPressed">#1C1C1E</item>
 
-        <item name="functionKeyTextColorNormal">@color/color_white</item>
-        <item name="functionKeyTextColorPressed">@color/color_white</item>
+        <item name="functionKeyTextColorNormal">#1C1C1E</item>
+        <item name="functionKeyTextColorPressed">#1C1C1E</item>
 
-        <item name="keySubLabelTextColorNormal">@color/color_white</item>
-        <item name="keySubLabelTextColorPressed">@color/color_white</item>
+        <item name="keySubLabelTextColorNormal">#8E8E93</item>
+        <item name="keySubLabelTextColorPressed">#3A3A3C</item>
     </style>
 
     <style name="LIMEKeyboardBaseView.FashionPurple" parent = "LIMEKeyboardBaseView">
@@ -313,11 +314,11 @@
         <item name="drawableArrowRight">@drawable/sym_keyboard_right_light</item>
         <item name="drawableArrowLeft">@drawable/sym_keyboard_left_light</item>
     </style>
-    <style name="LIMEBaseKeyboard.TechBlue" parent = "LIMEBaseKeyboard">
-        <item name="drawableArrowUp">@drawable/sym_keyboard_up_white</item>
-        <item name="drawableArrowDown">@drawable/sym_keyboard_down_white</item>
-        <item name="drawableArrowRight">@drawable/sym_keyboard_right_white</item>
-        <item name="drawableArrowLeft">@drawable/sym_keyboard_left_white</item>
+        <style name="LIMEBaseKeyboard.TechBlue" parent = "LIMEBaseKeyboard">
+        <item name="drawableArrowUp">@drawable/sym_keyboard_up_light</item>
+        <item name="drawableArrowDown">@drawable/sym_keyboard_down_light</item>
+        <item name="drawableArrowRight">@drawable/sym_keyboard_right_light</item>
+        <item name="drawableArrowLeft">@drawable/sym_keyboard_left_light</item>
     </style>
 
     <style name="LIMEBaseKeyboard.FashionPurple" parent = "LIMEBaseKeyboard">
@@ -431,28 +432,28 @@
         <item name="composingBackgroundColor">#FFFFFF</item>
     </style>
 
-    <style name="LIMECandidateView.TechBlue"  parent = "LIMECandidateView">
-        <item name="dismissPillColor">@color/keyboard_background_tech_blue</item>
-        <item name="suggestHighlight">@drawable/ic_suggest_scroll_background_tech_blue</item>
-        <item name="voiceInputIcon">@drawable/btn_voice_tech_blue</item>
-        <item name="emojiButtonIcon">@drawable/btn_emoji_tech_blue</item>
-        <item name="candidateBackground">@color/candidate_background_tech_blue</item>
-        <item name="ExpandDownButtonIcon">@drawable/btn_expand_down_tech_blue</item>
-        <item name="ExpandUpButtonIcon">@drawable/btn_expand_up_tech_blue</item>
-        <item name="keyboardShowIcon">@drawable/sym_keyboard_show_tech_blue</item>
+        <style name="LIMECandidateView.TechBlue"  parent = "LIMECandidateView">
+        <item name="dismissPillColor">#D1D3D9</item>
+        <item name="suggestHighlight">@drawable/ic_suggest_scroll_background_ios</item>
+        <item name="voiceInputIcon">@drawable/btn_voice_light</item>
+        <item name="emojiButtonIcon">@drawable/btn_emoji_light</item>
+        <item name="candidateBackground">#FFFFFF</item>
+        <item name="ExpandDownButtonIcon">@drawable/btn_expand_down_light</item>
+        <item name="ExpandUpButtonIcon">@drawable/btn_expand_up_light</item>
+        <item name="keyboardShowIcon">@drawable/sym_keyboard_show_light</item>
         <!-- color of  different types of candidates   -->
-        <item name="candidateNormalTextColor">@color/color_black</item>
-        <item name="candidateNormalTextHighlightColor">@color/color_white</item>
-        <item name="composingCodeColor">@color/second_foreground_tech_blue</item>
-        <item name="composingCodeHighlightColor">@color/color_white</item>
+        <item name="candidateNormalTextColor">#1C1C1E</item>
+        <item name="candidateNormalTextHighlightColor">#3B6EA5</item>
+        <item name="composingCodeColor">#1C1C1E</item>
+        <item name="composingCodeHighlightColor">#3B6EA5</item>
         <!-- color of  spacer between candidate   -->
-        <item name="spacerColor">@color/foreground_tech_blue</item>
+        <item name="spacerColor">#D1D1D6</item>
         <!-- color of  selection key display for physical keyboard   -->
-        <item name="selKeyColor">@color/color_black</item>
-        <item name="selKeyShiftedColor">@color/tech_blue_hl</item>
+        <item name="selKeyColor">#8E8E93</item>
+        <item name="selKeyShiftedColor">#3B6EA5</item>
         <!-- color of  composing text view above candidate view   -->
-        <item name="composingTextColor">@color/tech_blue_hl</item>
-        <item name="composingBackgroundColor">@color/composing_background_tech_blue</item>
+        <item name="composingTextColor">#8E8E93</item>
+        <item name="composingBackgroundColor">#FFFFFF</item>
     </style>
 
     <style name="LIMECandidateView.RelaxGreen"  parent = "LIMECandidateView">
