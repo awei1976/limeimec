@@ -469,7 +469,16 @@ public class LIMEBaseKeyboard {
          * Whether this key repeats itself when held down
          */
         public boolean repeatable;
+        private final static int[] KEY_STATE_ENTER_NORMAL = {
+                android.R.attr.state_single,
+                android.R.attr.state_activated
+        };
 
+        private final static int[] KEY_STATE_ENTER_PRESSED = {
+                android.R.attr.state_single,
+                android.R.attr.state_activated,
+                android.R.attr.state_pressed
+        };
 
         private final static int[] KEY_STATE_NORMAL_ON = {
                 android.R.attr.state_single,
