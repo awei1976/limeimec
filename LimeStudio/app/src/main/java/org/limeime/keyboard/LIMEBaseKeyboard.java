@@ -480,6 +480,15 @@ public class LIMEBaseKeyboard {
                 android.R.attr.state_pressed
         };
 
+        private final static int[] KEY_STATE_NORMAL = {
+                android.R.attr.state_single
+        };
+
+        private final static int[] KEY_STATE_PRESSED = {
+                android.R.attr.state_single,
+                android.R.attr.state_pressed
+        };
+
         private final static int[] KEY_STATE_NORMAL_ON = {
                 android.R.attr.state_single,
                 android.R.attr.state_checkable,
@@ -504,16 +513,6 @@ public class LIMEBaseKeyboard {
                 android.R.attr.state_checkable
         };
 
-                private final static int[] KEY_STATE_ENTER_NORMAL = {
-                android.R.attr.state_single,
-                android.R.attr.state_activated
-        };
-
-        private final static int[] KEY_STATE_ENTER_PRESSED = {
-                android.R.attr.state_single,
-                android.R.attr.state_activated,
-                android.R.attr.state_pressed
-        };
         // moved from LIMEKeybard by Jeremy '12,5,22
         private final int[] KEY_STATE_FUNCTIONAL_NORMAL = {
                 android.R.attr.state_single
