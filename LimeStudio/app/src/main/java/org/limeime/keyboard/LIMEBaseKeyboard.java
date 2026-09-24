@@ -495,10 +495,14 @@ public class LIMEBaseKeyboard {
                 android.R.attr.state_checkable
         };
 
-        private final static int[] KEY_STATE_NORMAL = {
+                private final static int[] KEY_STATE_ENTER_NORMAL = {
+                android.R.attr.state_single,
+                android.R.attr.state_activated
         };
 
-        private final static int[] KEY_STATE_PRESSED = {
+        private final static int[] KEY_STATE_ENTER_PRESSED = {
+                android.R.attr.state_single,
+                android.R.attr.state_activated,
                 android.R.attr.state_pressed
         };
         // moved from LIMEKeybard by Jeremy '12,5,22
@@ -728,9 +732,16 @@ public class LIMEBaseKeyboard {
          * @return the drawable state of the key.
          * @see android.graphics.drawable.StateListDrawable#setState(int[])
          */
+                /** 用主要代碼判斷是不是 Enter/換行鍵，讓它可以有自己的背景顏色。 */
+        public boolean isEnterKey() {
+            return codes != null && codes.length > 0 && codes[0] == LIMEBaseKeyboard.KEYCODE_ENTER;
+        }
+
         public int[] getCurrentDrawableState() {
             int[] states;
-            if (sticky) {
+            if (isEnterKey()) {
+                states = pressed ? KEY_STATE_ENTER_PRESSED : KEY_STATE_ENTER_NORMAL;
+            } else if (sticky) {
                 if (on) {
                     if (pressed) {
                         states = KEY_STATE_PRESSED_ON;
