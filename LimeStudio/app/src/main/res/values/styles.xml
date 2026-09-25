@@ -241,7 +241,7 @@
 
         <style name="LIMEKeyboardBaseView.TechBlue" parent = "LIMEKeyboardBaseView">
         <item name="keyPreviewLayout">@layout/key_preview_light</item>
-        <item name="keyBackground">@drawable/btn_keyboard_key_ios_light</item>
+        <item name="keyBackground">@drawable/btn_keyboard_key_material_blue</item>
         <item name="android:background">@drawable/keyboard_background_ios_light</item>
         <item name="popupHint">@drawable/keyboard_hint_transparent</item>
 
