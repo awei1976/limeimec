@@ -45,7 +45,7 @@
         <item name ="shiftKeyShiftedIcon">@drawable/sym_keyboard_shift_shifted</item>
     </style>
     <style name="LIMEKeyboard.Dark" parent = "LIMEKeyboard">
-        <item name="spaceKeyIcon">@drawable/sym_keyboard_space_dark</item>
+        <item name="spaceKeyIcon">@drawable/keyboard_hint_transparent</item>
         <item name="spaceKeyPreviewIcon">@drawable/sym_flat_keyboard_space_white</item>
         <item name="enterKeyIcon">@drawable/sym_keyboard_return_dark</item>
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_dark</item>
@@ -78,7 +78,7 @@
     </style>
 
     <style name="LIMEKeyboard.FashionPurple" parent = "LIMEKeyboard">
-        <item name="spaceKeyIcon">@drawable/sym_keyboard_space_white</item>
+        <item name="spaceKeyIcon">@drawable/keyboard_hint_transparent</item>
         <item name="spaceKeyPreviewIcon">@drawable/sym_flat_keyboard_space_white</item>
         <item name="enterKeyIcon">@drawable/sym_keyboard_return_white</item>
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_white</item>
@@ -90,7 +90,7 @@
 
 
     <style name="LIMEKeyboard.RelaxGreen" parent = "LIMEKeyboard">
-        <item name="spaceKeyIcon">@drawable/sym_keyboard_space_white</item>
+        <item name="spaceKeyIcon">@drawable/keyboard_hint_transparent</item>
         <item name="spaceKeyPreviewIcon">@drawable/sym_flat_keyboard_space_white</item>
         <item name="enterKeyIcon">@drawable/sym_keyboard_return_white</item>
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_white</item>
@@ -211,7 +211,7 @@
     <style name="LIMEKeyboardBaseView.Dark" parent = "LIMEKeyboardBaseView">
         <item name="keyPreviewLayout">@layout/key_preview_dark</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_dark</item>
-        <item name="popupHint">@drawable/hint_popup_dark</item>
+        <item name="popupHint">@drawable/keyboard_hint_transparent</item>
 
         <item name="keyTextColorNormal">@color/foreground_dark</item>
         <item name="keyTextColorPressed">@color/color_common_green_hl</item>
@@ -259,7 +259,7 @@
     <style name="LIMEKeyboardBaseView.FashionPurple" parent = "LIMEKeyboardBaseView">
         <item name="keyPreviewLayout">@layout/key_preview_fashion_purple</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_fashion_purple</item>
-        <item name="popupHint">@drawable/hint_popup_dark</item>
+        <item name="popupHint">@drawable/keyboard_hint_transparent</item>
 
         <item name="keyTextColorNormal">@color/foreground_fashion_purple</item>
         <item name="keyTextColorPressed">@color/color_white</item>
@@ -274,7 +274,7 @@
     <style name="LIMEKeyboardBaseView.RelaxGreen" parent = "LIMEKeyboardBaseView">
         <item name="keyPreviewLayout">@layout/key_preview_relax_green</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_relax_green</item>
-        <item name="popupHint">@drawable/hint_popup_dark</item>
+        <item name="popupHint">@drawable/keyboard_hint_transparent</item>
 
         <item name="keyTextColorNormal">@color/foreground_relax_green</item>
         <item name="keyTextColorPressed">@color/color_white</item>
