@@ -35,7 +35,7 @@
         <item name ="shiftKeyShiftedIcon">@drawable/sym_keyboard_shift_shifted</item>
     </style>
     <style name="LIMEKeyboard.Light" parent = "LIMEKeyboard">
-        <item name="spaceKeyIcon">@drawable/sym_keyboard_space_light</item>
+        <item name="spaceKeyIcon">@drawable/keyboard_hint_transparent</item>
         <item name="spaceKeyPreviewIcon">@drawable/sym_flat_keyboard_space</item>
         <item name="enterKeyIcon">@drawable/sym_keyboard_return_light</item>
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_light</item>
@@ -195,7 +195,7 @@
     <style name="LIMEKeyboardBaseView.Light" parent = "LIMEKeyboardBaseView">
         <item name="keyPreviewLayout">@layout/key_preview_light</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_light</item>
-        <item name="popupHint">@drawable/hint_popup</item>
+        <item name="popupHint">@drawable/keyboard_hint_transparent</item>
 
         <item name="keyTextColorNormal">@color/foreground_light</item>
         <item name="keyTextColorPressed">@color/color_common_green_hl</item>
