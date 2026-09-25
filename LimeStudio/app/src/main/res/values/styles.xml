@@ -248,11 +248,9 @@
         <item name="keyTextColorNormal">#000000</item>
         <item name="keyTextColorPressed">#000000</item>
 
-        <!-- 功能鍵文字改為深灰色 -->
-        <item name="functionKeyTextColorNormal">#5C6A79</item>
+        <item name="functionKeyTextColorNormal">#FFFFFF</item>
         <item name="functionKeyTextColorPressed">#1C1C1E</item>
 
-        <!-- 角標與副標題文字顏色 -->
         <item name="keySubLabelTextColorNormal">#8E8E93</item>
         <item name="keySubLabelTextColorPressed">#3A3A3C</item>
     </style>
