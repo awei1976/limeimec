@@ -66,18 +66,18 @@
         </inset>
     </item>
 
-    <!-- sticky 鍵：一般（未鎖定，淡陰影） -->
+        <!-- sticky 鍵：一般（未鎖定，淡陰影） -->
     <item android:state_single="true" android:state_checkable="true">
         <layer-list>
             <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2.5dp">
                 <shape android:shape="rectangle">
-                    <solid android:color="#9BA0AA" />
+                    <solid android:color="#2E5581" />
                     <corners android:radius="5dp" />
                 </shape>
             </item>
             <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="4dp">
                 <shape android:shape="rectangle">
-                    <solid android:color="#ABB1BC" />
+                    <solid android:color="#3B6EA5" />
                     <corners android:radius="5dp" />
                 </shape>
             </item>
@@ -95,18 +95,18 @@
         </inset>
     </item>
 
-    <!-- 功能鍵：一般（淡陰影） -->
+        <!-- 功能鍵：一般（淡陰影） -->
     <item android:state_single="true">
         <layer-list>
             <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="2.5dp">
                 <shape android:shape="rectangle">
-                    <solid android:color="#9BA0AA" />
+                    <solid android:color="#2E5581" />
                     <corners android:radius="5dp" />
                 </shape>
             </item>
             <item android:left="3dp" android:top="4dp" android:right="3dp" android:bottom="4dp">
                 <shape android:shape="rectangle">
-                    <solid android:color="#ABB1BC" />
+                    <solid android:color="#3B6EA5" />
                     <corners android:radius="5dp" />
                 </shape>
             </item>
