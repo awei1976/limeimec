@@ -482,10 +482,12 @@ public class LIMEBaseKeyboard {
 
         private final static int[] KEY_STATE_NORMAL = {
                 android.R.attr.state_single
+                android.R.attr.state_activated
         };
 
         private final static int[] KEY_STATE_PRESSED = {
                 android.R.attr.state_single,
+                android.R.attr.state_activated,
                 android.R.attr.state_pressed
         };
 
