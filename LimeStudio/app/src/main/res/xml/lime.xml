@@ -57,9 +57,8 @@
     </Row>
 
     <Row>
-        <Key limehd:codes="-1" limehd:keyIcon="@drawable/sym_keyboard_shift" limehd:isModifier="true"
-                limehd:keyWidth="15%p"
-                limehd:isSticky="true" limehd:keyEdgeFlags="left"/>
+        <Key limehd:codes="-9" limehd:keyLabel="EN" limehd:isModifier="true"
+             limehd:keyWidth="15%p" limehd:keyEdgeFlags="left"/>
         <Key limehd:codes="122" limehd:keyLabel="Z"/>
         <Key limehd:codes="120" limehd:keyLabel="X"/>
         <Key limehd:codes="99" limehd:keyLabel="C"/>
