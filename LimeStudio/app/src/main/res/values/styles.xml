@@ -73,8 +73,8 @@
         <item name="searchKeyIcon">@drawable/sym_keyboard_search_white</item>
         <item name="doneKeyIcon">@drawable/sym_keyboard_done_white</item>
         <item name="deleteKeyIcon">@drawable/sym_keyboard_delete_white</item>
-        <item name="shiftKeyIcon">@drawable/sym_keyboard_shift</item>
-        <item name="shiftKeyShiftedIcon">@drawable/sym_keyboard_shift_shifted</item>
+        <item name ="shiftKeyIcon">@drawable/sym_keyboard_shift_tech_blue</item>
+        <item name ="shiftKeyShiftedIcon">@drawable/sym_keyboard_shift_shifted_tech_blue</item>
     </style>
 
     <style name="LIMEKeyboard.FashionPurple" parent = "LIMEKeyboard">
