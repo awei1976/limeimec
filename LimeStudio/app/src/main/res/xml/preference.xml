@@ -39,7 +39,8 @@
             android:title="@string/keypress_sound_theme"
             android:entries="@array/keypress_sound_theme_options"
             android:entryValues="@array/keypress_sound_theme_values"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            android:summary="%s" />
         <ListPreference
             android:defaultValue="6"
             android:dialogTitle="@string/keyboard_themes"
