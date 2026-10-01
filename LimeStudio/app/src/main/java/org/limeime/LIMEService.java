@@ -310,8 +310,30 @@ public class LIMEService extends InputMethodService
 
     private Vibrator mVibrator;
     private AudioManager mAudioManager;
-    private SoundPool mSoundPool;
-    private int mSndSpace, mSndDelete, mSndEnter, mSndOther;
+        private SoundPool mSoundPool;
+    private static final int SND_SPACE = 0, SND_DELETE = 1, SND_ENTER = 2, SND_OTHER = 3;
+    private static final int SOUND_THEME_COUNT = 4;
+    private final int[][] mSndIds = new int[SOUND_THEME_COUNT][4];
+    private int mSoundThemeIndex = 0;
+
+    static final String PREF_KEY_SOUND_THEME = "keypress_sound_theme";
+
+    /** 讀取目前選擇的打字音效主題（0~3）。相容 int 與 String 兩種儲存型別。 */
+    static int readSoundThemeIndex(Context context) {
+        android.content.SharedPreferences sp =
+                androidx.preference.PreferenceManager.getDefaultSharedPreferences(context);
+        int idx;
+        try {
+            idx = sp.getInt(PREF_KEY_SOUND_THEME, 0);
+        } catch (ClassCastException e) {
+            try {
+                idx = Integer.parseInt(sp.getString(PREF_KEY_SOUND_THEME, "0"));
+            } catch (Exception e2) {
+                idx = 0;
+            }
+        }
+        return Math.max(0, Math.min(idx, SOUND_THEME_COUNT - 1));
+    }
 
     private boolean hasVibration = false;
     private boolean hasSound = false;
@@ -470,10 +492,17 @@ public class LIMEService extends InputMethodService
                         .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                         .build())
                 .build();
-        mSndSpace  = mSoundPool.load(this, R.raw.key_space, 1);
-        mSndDelete = mSoundPool.load(this, R.raw.key_delete, 1);
-        mSndEnter  = mSoundPool.load(this, R.raw.key_enter, 1);
-        mSndOther  = mSoundPool.load(this, R.raw.key_other, 1);
+                int[][] soundThemeRawIds = {
+                { R.raw.key_space,   R.raw.key_delete,   R.raw.key_enter,   R.raw.key_other   },
+                { R.raw.key_space_2, R.raw.key_delete_2, R.raw.key_enter_2, R.raw.key_other_2 },
+                { R.raw.key_space_3, R.raw.key_delete_3, R.raw.key_enter_3, R.raw.key_other_3 },
+                { R.raw.key_space_4, R.raw.key_delete_4, R.raw.key_enter_4, R.raw.key_other_4 },
+        };
+        for (int t = 0; t < SOUND_THEME_COUNT; t++) {
+            for (int c = 0; c < 4; c++) {
+                mSndIds[t][c] = mSoundPool.load(this, soundThemeRawIds[t][c], 1);
+            }
+        }
 
         // mFixedCandidateViewOn is always true, so we can remove the variable
         // mFixedCandidateViewOn = mLIMEPref.getFixedCandidateViewDisplay();
@@ -1069,6 +1098,7 @@ public class LIMEService extends InputMethodService
 
         hasVibration = mLIMEPref.getVibrateOnKeyPressed();
         hasSound = mLIMEPref.getSoundOnKeyPressed();
+		mSoundThemeIndex = readSoundThemeIndex(this);
         mPersistentLanguageMode = mLIMEPref.getPersistentLanguageMode();
         activeIM = mLIMEPref.getActiveIM();
         hasQuickSwitch = mLIMEPref.getSwitchEnglishModeHotKey();
@@ -6236,18 +6266,19 @@ public class LIMEService extends InputMethodService
         }
 
         if (hasSound && mSoundPool != null) {
-            int id;
+            int category;
             if (primaryCode == MY_KEYCODE_SPACE) {
-                id = mSndSpace;
+                category = SND_SPACE;
             } else if (primaryCode == LIMEBaseKeyboard.KEYCODE_DELETE) {
-                id = mSndDelete;
+                category = SND_DELETE;
             } else if (primaryCode == MY_KEYCODE_ENTER) {
-                id = mSndEnter;
+                category = SND_ENTER;
             } else {
-                id = mSndOther;
+                category = SND_OTHER;
             }
+            int id = mSndIds[mSoundThemeIndex][category];
             float v = mLIMEPref.getKeypressSoundVolume();
-            if (v < 0) v = 1.0f;   // -1 = 系統預設，這裡當作滿音量
+            if (v < 0) v = 1.0f;
             mSoundPool.play(id, v, v, 1, 0, 1.0f);
         }
     }
