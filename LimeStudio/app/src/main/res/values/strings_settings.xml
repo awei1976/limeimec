@@ -701,7 +701,20 @@
         <item>6</item>
     </string-array>
 
-
+    <string name="keypress_sound_theme">打字音效主題</string>
+    <string-array name="keypress_sound_theme_options">
+        <item>ios</item>
+        <item>xime</item>
+        <item>pixel</item>
+        <item>modern</item>
+    </string-array>
+    <string-array name="keypress_sound_theme_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+  
     <string-array name="split_keyboard_options">
         <item>關閉</item>
         <item>開啟</item>
