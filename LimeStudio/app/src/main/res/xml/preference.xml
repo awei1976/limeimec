@@ -35,12 +35,14 @@
         android:key="pref_section_appearance"
         android:title="@string/pref_section_appearance">
         <ListPreference
-            android:key="keypress_sound_theme"
-            android:title="@string/keypress_sound_theme"
+            android:defaultValue="0"
+            android:dialogTitle="@string/keypress_sound_theme"
             android:entries="@array/keypress_sound_theme_options"
             android:entryValues="@array/keypress_sound_theme_values"
-            android:defaultValue="0"
-            android:summary="%s" />
+            android:key="keypress_sound_theme"
+            app:useSimpleSummaryProvider="true"
+            android:layout="@layout/preference_value_chevron"
+            android:title="@string/keypress_sound_theme" />
         <ListPreference
             android:defaultValue="6"
             android:dialogTitle="@string/keyboard_themes"
