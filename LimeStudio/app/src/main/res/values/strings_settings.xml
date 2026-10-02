@@ -707,12 +707,16 @@
         <item>xime</item>
         <item>pixel</item>
         <item>modern</item>
+        <item>R.P.G.</item>
+        <item>R.P.G. cute</item>
     </string-array>
     <string-array name="keypress_sound_theme_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
   
     <string-array name="split_keyboard_options">
