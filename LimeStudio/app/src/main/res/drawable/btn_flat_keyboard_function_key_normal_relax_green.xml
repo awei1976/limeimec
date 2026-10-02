@@ -26,7 +26,7 @@
         android:radius="3dp"
         />
     <solid
-        android:color="@color/second_background_relax_green_hl"
+        android:color="#5E1914"
         />
     <padding
         android:left="1dp"
