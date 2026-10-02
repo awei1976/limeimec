@@ -703,12 +703,12 @@
 
     <string name="keypress_sound_theme">打字音效主題</string>
     <string-array name="keypress_sound_theme_options">
-        <item>ios</item>
-        <item>xime</item>
-        <item>pixel</item>
-        <item>modern</item>
+        <item>iOS</item>
+        <item>Xime</item>
+        <item>Pixel</item>
+        <item>Modern</item>
         <item>RPG</item>
-        <item>RPGcute</item>
+        <item>Kawaii</item>
     </string-array>
     <string-array name="keypress_sound_theme_values">
         <item>0</item>
