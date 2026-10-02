@@ -707,8 +707,8 @@
         <item>xime</item>
         <item>pixel</item>
         <item>modern</item>
-        <item>R.P.G.</item>
-        <item>R.P.G. cute</item>
+        <item>RPG</item>
+        <item>RPGcute</item>
     </string-array>
     <string-array name="keypress_sound_theme_values">
         <item>0</item>
