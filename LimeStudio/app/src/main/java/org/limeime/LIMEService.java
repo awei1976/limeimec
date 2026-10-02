@@ -312,8 +312,8 @@ public class LIMEService extends InputMethodService
     private AudioManager mAudioManager;
         private SoundPool mSoundPool;
     private static final int SND_SPACE = 0, SND_DELETE = 1, SND_ENTER = 2, SND_OTHER = 3;
-    private static final int SOUND_THEME_COUNT = 4;
-    private final int[][] mSndIds = new int[SOUND_THEME_COUNT][4];
+    private static final int SOUND_THEME_COUNT = 6;
+    private final int[][] mSndIds = new int[SOUND_THEME_COUNT][6];
     private int mSoundThemeIndex = 0;
 
     static final String PREF_KEY_SOUND_THEME = "keypress_sound_theme";
@@ -497,6 +497,8 @@ public class LIMEService extends InputMethodService
                 { R.raw.key_space_2, R.raw.key_delete_2, R.raw.key_enter_2, R.raw.key_other_2 },
                 { R.raw.key_space_3, R.raw.key_delete_3, R.raw.key_enter_3, R.raw.key_other_3 },
                 { R.raw.key_space_4, R.raw.key_delete_4, R.raw.key_enter_4, R.raw.key_other_4 },
+				{ R.raw.key_space_5, R.raw.key_delete_5, R.raw.key_enter_5, R.raw.key_other_5 },
+				{ R.raw.key_space_6, R.raw.key_delete_6, R.raw.key_enter_6, R.raw.key_other_6 },	
         };
         for (int t = 0; t < SOUND_THEME_COUNT; t++) {
             for (int c = 0; c < 4; c++) {
