@@ -3,10 +3,8 @@
     android:insetLeft="3dp" android:insetTop="4dp"
     android:insetRight="3dp" android:insetBottom="4dp">
     <shape android:shape="rectangle">
-        <corners android:radius="3dp" />
+        <corners android:radius="5dp" />
         <solid android:color="@color/fashion_purple_hl" />
-        <stroke
-            android:width="1dp"
-            android:color="@color/keyboard_background_fashion_purple" />
+        
     </shape>
 </inset>
