@@ -5765,6 +5765,53 @@ public class LIMEService extends InputMethodService
 
     }
 
+    // 嘸蝦米字表所在的輸入法代號(匯入 liu.cin 時選的位置)。若不是自建字表請改這裡,
+    // 例如大易:LIME.IM_DAYI
+    private static final String BOSHIAMY_IM = "custom";
+
+    private boolean isBoshiamyTable() {
+        return BOSHIAMY_IM.equals(activeIM);
+    }
+
+    // 嘸蝦米:候選字已出現時,按 v 直接選第二個候選字
+    private boolean handleBoshiamySecondSelect(int primaryCode) {
+        if (primaryCode != 'v' || mEnglishOnly || mComposing.length() == 0
+                || !hasCandidatesShown || mCandidateList == null
+                || !isBoshiamyTable() || SearchSrv == null) {
+            return false;
+        }
+        String code = mComposing.toString();
+
+        // 找出完全符合目前碼的第 2 個候選字(第 0 筆可能是組字碼回顯,所以用索引掃描)
+        int second = -1, seen = 0;
+        for (int i = 0; i < mCandidateList.size(); i++) {
+            Mapping m = mCandidateList.get(i);
+            if (m != null && !m.isComposingCodeRecord()
+                    && m.isExactMatchToCodeRecord()
+                    && code.equals(m.getCode())) {   // 同時確認串列沒有過期
+                if (++seen == 2) { second = i; break; }
+            }
+        }
+        if (second < 0) return false;
+
+        // 碼+v 若是合法碼,或是更長碼的前綴,v 就當字根輸入,不攔截
+        try {
+            List<Mapping> next = SearchSrv.getMappingByCode(code + "v", !hasPhysicalKeyPressed, false);
+            if (next != null) {
+                for (Mapping m : next) {
+                    if (m != null && (m.isExactMatchToCodeRecord() || m.isPartialMatchToCodeRecord())) {
+                        return false;
+                    }
+                }
+            }
+        } catch (RemoteException e) {
+            return false;
+        }
+
+        pickCandidateManually(second);
+        return true;
+    }
+
     /**
      * This method construct candidate view and add key code to composing object
      */
@@ -5786,6 +5833,12 @@ public class LIMEService extends InputMethodService
                     Log.i(TAG, "handleCharacter() sel key found return now");
                 return;
             }
+        }
+
+        // 嘸蝦米:候選字已出現時,按 v 直接選第二個候選字
+        if (handleBoshiamySecondSelect(primaryCode)) {
+            updateShiftKeyState(getCurrentInputEditorInfo());
+            return;
         }
 
 
