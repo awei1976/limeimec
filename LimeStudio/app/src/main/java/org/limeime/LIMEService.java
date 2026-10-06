@@ -5773,33 +5773,37 @@ public class LIMEService extends InputMethodService
         return BOSHIAMY_IM.equals(activeIM);
     }
 
-    // 嘸蝦米:候選字已出現時,按 v 直接選第二個候選字
+    // 已經為這一份候選串列把反白移到第二個候選字(避免重複按 v 一直往後移)
+    private LinkedList<Mapping> mBoshiamyMovedList = null;
+
+    // 嘸蝦米:候選字已出現時,按 v 把反白移到第二個候選字(不輸入 v),再按空白鍵上字
     private boolean handleBoshiamySecondSelect(int primaryCode) {
         if (primaryCode != 'v' || mEnglishOnly || mComposing.length() == 0
-                || !hasCandidatesShown || mCandidateList == null
+                || !hasCandidatesShown || mCandidateList == null || mCandidateView == null
                 || !isBoshiamyTable() || SearchSrv == null) {
             return false;
         }
         String code = mComposing.toString();
 
-        // 找出完全符合目前碼的第 2 個候選字(第 0 筆可能是組字碼回顯,所以用索引掃描)
-        int second = -1, seen = 0;
-        for (int i = 0; i < mCandidateList.size(); i++) {
-            Mapping m = mCandidateList.get(i);
-            if (m != null && !m.isComposingCodeRecord()
-                    && m.isExactMatchToCodeRecord()
-                    && code.equals(m.getCode())) {   // 同時確認串列沒有過期
-                if (++seen == 2) { second = i; break; }
+        // 目前組字碼的真實候選字數(第 0 筆可能是組字碼回顯,要排除)
+        int real = 0;
+        for (Mapping m : mCandidateList) {
+            if (m != null && !m.isComposingCodeRecord() && !m.isEmojiRecord()
+                    && code.equals(m.getCode())) {
+                real++;
             }
         }
-        if (second < 0) return false;
+        Log.i("BoshiamyV", "code=" + code + " listSize=" + mCandidateList.size() + " real=" + real);
+        if (real < 2) return false;
 
         // 碼+v 若是合法碼,或是更長碼的前綴,v 就當字根輸入,不攔截
         try {
             List<Mapping> next = SearchSrv.getMappingByCode(code + "v", !hasPhysicalKeyPressed, false);
             if (next != null) {
                 for (Mapping m : next) {
-                    if (m != null && (m.isExactMatchToCodeRecord() || m.isPartialMatchToCodeRecord())) {
+                    if (m != null && !m.isComposingCodeRecord() && m.getCode() != null
+                            && m.getCode().startsWith(code + "v")) {
+                        Log.i("BoshiamyV", code + "v is a valid code/prefix, treat v as root");
                         return false;
                     }
                 }
@@ -5808,7 +5812,12 @@ public class LIMEService extends InputMethodService
             return false;
         }
 
-        pickCandidateManually(second);
+        // 同一份候選串列只移一次,之後再按 v 不處理(吃掉,不輸入 v)
+        if (mBoshiamyMovedList != mCandidateList) {
+            mBoshiamyMovedList = mCandidateList;
+            mCandidateView.selectNext();
+            Log.i("BoshiamyV", "moved highlight to second candidate");
+        }
         return true;
     }
 
@@ -5835,7 +5844,7 @@ public class LIMEService extends InputMethodService
             }
         }
 
-        // 嘸蝦米:候選字已出現時,按 v 直接選第二個候選字
+        // 嘸蝦米:候選字已出現時,按 v 反白第二個候選字,再按空白鍵上字
         if (handleBoshiamySecondSelect(primaryCode)) {
             updateShiftKeyState(getCurrentInputEditorInfo());
             return;
