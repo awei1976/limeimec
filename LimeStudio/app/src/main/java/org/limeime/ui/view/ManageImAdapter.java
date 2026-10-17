@@ -89,9 +89,9 @@ public class ManageImAdapter extends ListAdapter<Record, ManageImAdapter.ViewHol
             holder.txtWord.setText(wordtext);
             holder.txtScore.setText(String.valueOf(record.getScore()));
 
-            holder.itemView.setOnClickListener(v -> {
+                        holder.itemView.setOnClickListener(v -> {
                 if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(record, holder.getAdapterPosition());
+                    onItemClickListener.onItemClick(record, holder.getBindingAdapterPosition());
                 }
             });
         }
