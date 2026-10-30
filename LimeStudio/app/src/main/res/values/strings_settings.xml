@@ -884,7 +884,22 @@
         <item>0.25</item>
         <item>0.40</item>
     </string-array>
-
+        <string-array name="keyboard_size_options">
+        <item>特大</item>
+        <item>大+</item>
+        <item>大</item>
+        <item>一般</item>
+        <item>小</item>
+        <item>特小</item>
+    </string-array>
+    <string-array name="keyboard_size_values">
+        <item>1.2</item>
+        <item>1.15</item>
+        <item>1.1</item>
+        <item>1</item>
+        <item>0.9</item>
+        <item>0.8</item>
+    </string-array>
 
     <!-- SetupFragment strings -->
     <string name="setup_step_enable_keyboard">於系統設定中啟用萊姆輸入法</string>
