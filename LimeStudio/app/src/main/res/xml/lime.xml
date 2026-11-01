@@ -57,25 +57,25 @@
     </Row>
 
     <Row>
-        <Key limehd:codes="122" limehd:keyLabel="Z" limehd:horizontalGap="12%p" limehd:keyEdgeFlags="left"/>
+        <Key limehd:codes="-9" limehd:keyLabel="EN" limehd:isModifier="true"
+             limehd:keyWidth="12%p" limehd:keyEdgeFlags="left"/>
+        <Key limehd:codes="122" limehd:keyLabel="Z"/>
         <Key limehd:codes="120" limehd:keyLabel="X"/>
         <Key limehd:codes="99" limehd:keyLabel="C"/>
         <Key limehd:codes="118" limehd:keyLabel="V"/>
         <Key limehd:codes="98" limehd:keyLabel="B"/>
         <Key limehd:codes="110" limehd:keyLabel="N"/>
         <Key limehd:codes="109" limehd:keyLabel="M"/>
-                <Key limehd:codes="-5" limehd:keyIcon="@drawable/sym_keyboard_delete_light" limehd:isModifier="true"
-                limehd:horizontalGap="3%p"
-                limehd:keyWidth="15%p" limehd:keyEdgeFlags="right"
+        <Key limehd:codes="-5" limehd:keyIcon="@drawable/sym_keyboard_delete_light" limehd:isModifier="true"
+                limehd:keyWidth="12%p" limehd:keyEdgeFlags="right"
                 limehd:isRepeatable="true"/>
     </Row>
 
     <Row limehd:rowEdgeFlags="bottom">
         <!-- 123 符號鍵移到最左邊 -->
-        <Key limehd:codes="-2" limehd:keyLabel="@string/label_symbol_key" limehd:isModifier="true" limehd:popupKeyboard="@xml/phone_simple" limehd:keyWidth="10%p"/>   
-        <Key limehd:codes="-9" limehd:keyLabel="EN" limehd:isModifier="true" limehd:keyWidth="10%p" limehd:keyEdgeFlags="left"/>
+        <Key limehd:codes="-2" limehd:keyLabel="@string/label_symbol_key" limehd:isModifier="true" limehd:popupKeyboard="@xml/phone_simple" limehd:keyWidth="15%p" limehd:keyEdgeFlags="left"/>
         <Key limehd:codes="44" limehd:keyLabel="," limehd:keyWidth="10%p"/>
-        <Key limehd:codes="32" limehd:keyIcon="@drawable/sym_flat_keyboard_space" limehd:keyWidth="45%p" limehd:isRepeatable="true"/>
+        <Key limehd:codes="32" limehd:keyIcon="@drawable/sym_flat_keyboard_space" limehd:keyWidth="50%p" limehd:isRepeatable="true"/>
         <Key limehd:codes="46"
                 limehd:keyLabel="."
                 limehd:popupKeyboard="@xml/popup_c_punctuation"
