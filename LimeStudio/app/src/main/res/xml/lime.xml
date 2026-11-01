@@ -58,7 +58,7 @@
 
     <Row>
         <Key limehd:codes="-9" limehd:keyLabel="EN" limehd:isModifier="true"
-             limehd:keyWidth="10%p" limehd:keyEdgeFlags="left"/>
+             limehd:keyWidth="8%p" limehd:keyEdgeFlags="left"/>
         <Key limehd:codes="122" limehd:keyLabel="Z" limehd:horizontalGap="3%p"/>
         <Key limehd:codes="120" limehd:keyLabel="X"/>
         <Key limehd:codes="99" limehd:keyLabel="C"/>
@@ -67,7 +67,7 @@
         <Key limehd:codes="110" limehd:keyLabel="N"/>
         <Key limehd:codes="109" limehd:keyLabel="M"/>
         <Key limehd:codes="-5" limehd:keyIcon="@drawable/sym_keyboard_delete_light" limehd:isModifier="true"
-                limehd:horizontalGap="3%p"
+                limehd:horizontalGap="5%p"
                 limehd:keyWidth="14%p" limehd:keyEdgeFlags="right"
                 limehd:isRepeatable="true"/>
     </Row>
