@@ -67,8 +67,8 @@
         <Key limehd:codes="110" limehd:keyLabel="N"/>
         <Key limehd:codes="109" limehd:keyLabel="M"/>
         <Key limehd:codes="-5" limehd:keyIcon="@drawable/sym_keyboard_delete_light" limehd:isModifier="true"
-                limehd:horizontalGap="5%p"
-                limehd:keyWidth="14%p" limehd:keyEdgeFlags="right"
+                limehd:horizontalGap="4%p"
+                limehd:keyWidth="15%p" limehd:keyEdgeFlags="right"
                 limehd:isRepeatable="true"/>
     </Row>
 
