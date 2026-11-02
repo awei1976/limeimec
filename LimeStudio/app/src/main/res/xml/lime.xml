@@ -58,8 +58,8 @@
 
     <Row>
         <Key limehd:codes="-9" limehd:keyLabel="EN" limehd:isModifier="true"
-             limehd:keyWidth="10%p" limehd:keyEdgeFlags="left"/>
-        <Key limehd:codes="122" limehd:keyLabel="Z" limehd:horizontalGap="5%p"/>
+             limehd:keyWidth="12.5%p" limehd:keyEdgeFlags="left"/>
+        <Key limehd:codes="122" limehd:keyLabel="Z" limehd:horizontalGap="2.5%p"/>
         <Key limehd:codes="120" limehd:keyLabel="X"/>
         <Key limehd:codes="99" limehd:keyLabel="C"/>
         <Key limehd:codes="118" limehd:keyLabel="V"/>
